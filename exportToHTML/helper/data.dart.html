@@ -1,0 +1,71 @@
+<html>
+<head>
+<title>data.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+data.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:test_test/models/category_model.dart'</span><span class="s2">;</span>
+
+<span class="s0">List&lt;CategoryModel&gt; getCategories(){</span>
+
+  <span class="s0">List&lt;CategoryModel&gt; myCategories = List&lt;CategoryModel&gt;()</span><span class="s2">;</span>
+  <span class="s0">CategoryModel categoryModel</span><span class="s2">;</span>
+
+  <span class="s3">//1</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;Business&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1502&amp;q=80&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s3">//2</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;Entertainment&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s3">//3</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;General&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1495020689067-958852a7765e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s3">//4</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;Health&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1595&amp;q=80&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s3">//5</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;Science&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1554475901-4538ddfbccc2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1504&amp;q=80&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s3">//5</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;Sports&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1495563923587-bdc4282494d0?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s3">//5</span>
+  <span class="s0">categoryModel = </span><span class="s2">new </span><span class="s0">CategoryModel()</span><span class="s2">;</span>
+  <span class="s0">categoryModel.categoryName = </span><span class="s1">&quot;Technology&quot;</span><span class="s2">;</span>
+  <span class="s0">categoryModel.imageAssetUrl = </span><span class="s1">&quot;https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1500&amp;q=80&quot;</span><span class="s2">;</span>
+  <span class="s0">myCategories.add(categoryModel)</span><span class="s2">;</span>
+
+  <span class="s2">return </span><span class="s0">myCategories</span><span class="s2">;</span>
+
+<span class="s0">}</span></pre>
+</body>
+</html>

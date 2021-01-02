@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Modify this file to customize your launch splash screen -->
+<layer-list xmlns:android="app\src\main\assets\splash.png">
+    <item android:drawable="@app\src\main\assets\splash.png" />
+
+     <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@assets/splash" />
+    </item>
+</layer-list>

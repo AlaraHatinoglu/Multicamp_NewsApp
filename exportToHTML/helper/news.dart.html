@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>news.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+news.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:http/http.dart' </span><span class="s0">as http</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:test_test/models/article.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'dart:convert'</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">'package:test_test/api.dart'</span><span class="s2">;</span>
+
+<span class="s2">class </span><span class="s0">News {</span>
+
+  <span class="s0">List&lt;Article&gt; news  = []</span><span class="s2">;</span>
+
+  <span class="s0">Future&lt;</span><span class="s2">void</span><span class="s0">&gt; getNews() async{</span>
+
+    <span class="s0">String url = </span><span class="s1">&quot;http://newsapi.org/v2/top-headlines?country=tr&amp;excludeDomains=stackoverflow.com&amp;sortBy=publishedAt&amp;language=en&amp;apiKey=</span><span class="s0">${apiKey}</span><span class="s1">&quot;</span><span class="s2">;</span>
+
+    <span class="s2">var </span><span class="s0">response = await http.get(url)</span><span class="s2">;</span>
+
+    <span class="s2">var </span><span class="s0">jsonData = jsonDecode(response.body)</span><span class="s2">;</span>
+
+    <span class="s2">if</span><span class="s0">(jsonData[</span><span class="s1">'status'</span><span class="s0">] == </span><span class="s1">&quot;ok&quot;</span><span class="s0">){</span>
+      <span class="s0">jsonData[</span><span class="s1">&quot;articles&quot;</span><span class="s0">].forEach((element){</span>
+
+        <span class="s2">if</span><span class="s0">(element[</span><span class="s1">'urlToImage'</span><span class="s0">] != </span><span class="s2">null </span><span class="s0">){</span>
+          <span class="s0">Article article = Article(</span>
+            <span class="s0">title: element[</span><span class="s1">'title'</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">author: element[</span><span class="s1">'author'</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">urlToImage: element[</span><span class="s1">'urlToImage'</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">publishedAt: DateTime.parse(element[</span><span class="s1">'publishedAt'</span><span class="s0">])</span><span class="s2">,</span>
+            <span class="s0">content: element[</span><span class="s1">&quot;content&quot;</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">articleUrl: element[</span><span class="s1">&quot;url&quot;</span><span class="s0">]</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">;</span>
+          <span class="s0">news.add(article)</span><span class="s2">;</span>
+        <span class="s0">}</span>
+
+      <span class="s0">})</span><span class="s2">;</span>
+    <span class="s0">}</span>
+
+
+  <span class="s0">}</span>
+
+
+<span class="s0">}</span>
+
+
+<span class="s2">class </span><span class="s0">NewsForCategory {</span>
+
+  <span class="s0">List&lt;Article&gt; news  = []</span><span class="s2">;</span>
+
+  <span class="s0">Future&lt;</span><span class="s2">void</span><span class="s0">&gt; getNewsForCategory(String category) async{</span>
+
+    <span class="s3">/*String url = &quot;http://newsapi.org/v2/everything?q=$category&amp;apiKey=${apiKey}&quot;;*/</span>
+    <span class="s0">String url = </span><span class="s1">&quot;http://newsapi.org/v2/top-headlines?country=tr&amp;category=</span><span class="s0">$category</span><span class="s1">&amp;apiKey=</span><span class="s0">$apiKey</span><span class="s1">&quot;</span><span class="s2">;</span>
+
+    <span class="s2">var </span><span class="s0">response = await http.get(url)</span><span class="s2">;</span>
+
+    <span class="s2">var </span><span class="s0">jsonData = jsonDecode(response.body)</span><span class="s2">;</span>
+
+    <span class="s2">if</span><span class="s0">(jsonData[</span><span class="s1">'status'</span><span class="s0">] == </span><span class="s1">&quot;ok&quot;</span><span class="s0">){</span>
+      <span class="s0">jsonData[</span><span class="s1">&quot;articles&quot;</span><span class="s0">].forEach((element){</span>
+
+        <span class="s2">if</span><span class="s0">(element[</span><span class="s1">'urlToImage'</span><span class="s0">] != </span><span class="s2">null </span><span class="s0">&amp;&amp; element[</span><span class="s1">'description'</span><span class="s0">] != </span><span class="s2">null</span><span class="s0">){</span>
+          <span class="s0">Article article = Article(</span>
+            <span class="s0">title: element[</span><span class="s1">'title'</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">author: element[</span><span class="s1">'author'</span><span class="s0">]</span><span class="s2">,</span>
+
+            <span class="s0">urlToImage: element[</span><span class="s1">'urlToImage'</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">publishedAt: DateTime.parse(element[</span><span class="s1">'publishedAt'</span><span class="s0">])</span><span class="s2">,</span>
+            <span class="s0">content: element[</span><span class="s1">&quot;content&quot;</span><span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">articleUrl: element[</span><span class="s1">&quot;url&quot;</span><span class="s0">]</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">;</span>
+          <span class="s0">news.add(article)</span><span class="s2">;</span>
+        <span class="s0">}</span>
+
+      <span class="s0">})</span><span class="s2">;</span>
+    <span class="s0">}</span>
+
+
+  <span class="s0">}</span>
+
+
+<span class="s0">}</span>
+
+</pre>
+</body>
+</html>
